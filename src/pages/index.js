@@ -1,22 +1,85 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { graphql, Link } from 'gatsby';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import Image from '../components/image';
+import SEO from '../components/seo';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+export default ({ data }) => {
+  console.log(data);
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <div>
+        <h1>Shan's Thoughts</h1>
+        <h4>{data.allMarkdownRemark.totalCount} </h4>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div key={node.id}>
+            <span>
+              {node.frontmatter.title} - {node.frontmatter.date}
+            </span>
+            <p>{node.excerpt}</p>
+          </div>
+        ))}
+      </div>
+    </Layout>
+  );
+};
 
-export default IndexPage
+// graphql request
+// then this graphql or pattern like thing will be used by default
+export const query = graphql`
+  query {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            date
+            description
+            title
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`;
+
+// this data, is that data passed down as a prop
+/* 
+{
+  "data": {
+    "allMarkdownRemark": {
+      "edges": [
+        {
+          "node": {
+            "id": "24c14c8f-224b-5438-a618-1fce15987801",
+            "fileAbsolutePath": "/Users/shan-mi/Gatsby/gatsby-blog/src/markdown-pages/my-first-ama.md",
+            "frontmatter": {
+              "date": "2017-08-21",
+              "description": "My first AMA :)",
+              "title": "My First AMA"
+            },
+            "excerpt": "Thank you everyone who enjoyed the AMA! It was my first one and I'd love to do it again."
+          }
+        },
+        {
+          "node": {
+            "id": "d8c02b84-a74a-545e-a12f-c5d537989aeb",
+            "fileAbsolutePath": "/Users/shan-mi/Gatsby/gatsby-blog/src/markdown-pages/ice-cream.md",
+            "frontmatter": {
+              "date": "2020-11-25",
+              "description": null,
+              "title": "Why I Love Ice Cream"
+            },
+            "excerpt": "Ice cream is the best. I scream, you scream, we all scream, because there's no more ice cream. No one's rhyming about spinach. Here is a…"
+          }
+        }
+      ]
+    }
+  },
+  "extensions": {}
+}
+*/
