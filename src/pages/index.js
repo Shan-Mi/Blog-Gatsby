@@ -15,12 +15,13 @@ const BlogTitle = styled.h3`
 
 export default ({ data }) => {
   console.log(data);
+  const count = data.allMarkdownRemark.totalCount;
   return (
     <Layout>
       <SEO title="Home" />
       <div>
         <h1>Shan's Thoughts</h1>
-        <h4>{data.allMarkdownRemark.totalCount} </h4>
+        <h4>{count > 1 ? `${count} Blogs` : `${count} Blog`} in total</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <BlogLink to={node.fields.slug}>
@@ -40,7 +41,7 @@ export default ({ data }) => {
 // then this graphql or pattern like thing will be used by default
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC}) {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       totalCount
       edges {
         node {
