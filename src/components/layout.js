@@ -11,6 +11,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 import './layout.css';
+import 'fontsource-open-sans';
+import 'fontsource-nerko-one';
+import 'fontsource-audiowide';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

@@ -4,13 +4,39 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
+import 'fontsource-open-sans';
 
 const BlogLink = styled(Link)`
   text-decoration: none;
 `;
 const BlogTitle = styled.h3`
   margin-bottom: 20px;
-  color: blue;
+  color: #ef5777;
+`;
+const TitleFlexContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(227, 223, 71);
+  background: linear-gradient(
+    90deg,
+    rgba(227, 223, 71, 1) 0%,
+    rgba(255, 146, 87, 1) 32%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  h1,
+  h4 {
+    font-family: 'Audiowide', cursive;
+  }
+
+  h4 {
+    font-style: italic;
+  }
 `;
 
 export default ({ data }) => {
@@ -20,8 +46,10 @@ export default ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <div>
-        <h1>Shan's Thoughts</h1>
-        <h4>{count > 1 ? `${count} Blogs` : `${count} Blog`} in total</h4>
+        <TitleFlexContainer>
+          <h1>Shan's Thoughts</h1>
+          <h4>{count > 1 ? `${count} Blogs` : `${count} Blog`} in total</h4>
+        </TitleFlexContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <BlogLink to={node.fields.slug}>
