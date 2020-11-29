@@ -11,8 +11,13 @@ const BlogLink = styled(Link)`
 `;
 const BlogTitle = styled.h3`
   margin-bottom: 20px;
-  color: #ef5777;
+  color: #f3ebf6;
 `;
+
+const BlogContent = styled.p`
+  color: #B7B3B8;
+`;
+
 const TitleFlexContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -57,7 +62,7 @@ export default ({ data }) => {
                 {node.frontmatter.title} - {node.frontmatter.date}
               </BlogTitle>
             </BlogLink>
-            <p>{node.excerpt}</p>
+            <BlogContent>{node.excerpt}</BlogContent>
           </div>
         ))}
       </div>

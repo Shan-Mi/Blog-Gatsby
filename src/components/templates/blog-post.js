@@ -4,6 +4,16 @@ import Layout from '../layout';
 import { node } from 'prop-types';
 import styled from 'styled-components';
 
+const BlogTitle = styled.h1`
+  /* margin-bottom: 20px; */
+  color: #EACAAC;
+  /* color: #65C4B5; */
+`;
+
+const BlogContent = styled.div`
+  color: #ECF3F4;
+`;
+
 const GoBackBtn = styled.button`
   cursor: pointer;
   background-color: #4c96d7;
@@ -24,8 +34,8 @@ export default ({ data }) => {
   return (
     <Layout>
       <div>
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <BlogTitle>{post.frontmatter.title}</BlogTitle>
+        <BlogContent dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
       <Link to="/">
         <GoBackBtn>Go back</GoBackBtn>

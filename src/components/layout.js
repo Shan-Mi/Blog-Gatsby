@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <>
+    <div style={{ background: '#6B688D', minHeight: '100vh' }}>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
       </div>
-    </>
+    </div>
   );
 };
 
