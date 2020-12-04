@@ -1,6 +1,6 @@
 ---
 title: Try to begin codewars seriously
-date: 2020-12-03 23:38:14
+date: 2020-12-03
 tags: ["TypeScript", "rambling"]
 ---
 Brain needs some training🧐, and it is hard to follow some algorithm course from Princeton.
