@@ -43,8 +43,8 @@ const Header = ({ siteTitle }) => (
       background: `rgb(227,223,71)`,
       background: `linear-gradient(90deg, rgba(227,223,71,1) 0%, rgba(255,146,87,1) 32%, rgba(0,212,255,1) 100%)`,
       marginBottom: `1.45rem`,
-      height: `12vh`,
-      transform: `translate(0, -20%) rotate(-2deg)`,
+      height: `15vh`,
+      transform: `translate(0, -23%) rotate(-2deg)`,
       transition: ``,
     }}
   >
@@ -55,7 +55,7 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
         display: `flex`,
         alignItems: `center`,
-        height: `12vh`,
+        height: `15vh`,
         transform: `rotate(2deg)`,
         paddingTop: `50px`,
       }}
