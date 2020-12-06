@@ -21,4 +21,4 @@ My hexo blog has issues again, so post it here instead.
 
 2020-12-04: **&#9745;** (This time, it was TS version took me so long time.)
 
-2020-12-05: **&#9745;** **&#9745;** (Better than yesterday, did not waste too much time on them.)
+2020-12-05: **&#9745;** **&#9745;** **&#9745;** **&#9745;** **&#9745;**(Better than yesterday, did not waste too much time on them.)
